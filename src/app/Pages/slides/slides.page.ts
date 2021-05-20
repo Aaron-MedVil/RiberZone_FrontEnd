@@ -10,6 +10,7 @@ import { LoadingController } from '@ionic/angular';
 })
 export class SlidesPage implements OnInit {
 
+  productosMejorValorados: ProductTemplate;
   productosPopulares: ProductTemplate;
   productosBaratos: ProductTemplate;
   productosNuevos: ProductTemplate;
@@ -56,18 +57,29 @@ export class SlidesPage implements OnInit {
       .catch(console.error);
 
     //> Obtiene todos los productos
-    await this._dataLocal.getAllProducts()
-      .then(resp => { this.todosProductos = resp; })
+    await this._dataLocal.GetProductTemplate()
+      .then(resp => { this.todosProductos = (!resp.hasOwnProperty('status')) ? resp : undefined; })
       .catch(() => { this.todosProductos = this.productosLocales; });
 
     //> Obtiene los datos de los productos populares
     await this._dataLocal.getPopularProducts()
-      .then(resp => { this.productosPopulares = resp; })
+      .then(resp => { this.productosPopulares = (!resp.hasOwnProperty('status')) ? resp : undefined; })
       .catch(() => { this.productosPopulares = this.productosLocales; });
 
-    //> ========== Hacer las llamadas HTTP ========== <\\
-    this.productosBaratos = this.productosLocales;
-    this.productosNuevos = this.productosLocales;
+    //> Obtiene los datos de los productos por debajo de 10€
+    await this._dataLocal.getCheapProducts()
+      .then(resp => { this.productosBaratos = (!resp.hasOwnProperty('status')) ? resp : undefined; })
+      .catch(() => { this.productosBaratos = this.productosLocales; });
+
+    //> Obtiene los datos de los productos nuevos
+    await this._dataLocal.getNewProducts()
+      .then(resp => { this.productosNuevos = (!resp.hasOwnProperty('status')) ? resp : undefined; })
+      .catch(() => { this.productosNuevos = this.productosLocales; });
+
+    //> Obtiene los datos de los productos mejor valorados
+    await this._dataLocal.GetBestProducts()
+      .then(resp => { this.productosMejorValorados = (!resp.hasOwnProperty('status')) ? resp : undefined; })
+      .catch(() => { this.productosMejorValorados = this.productosLocales; });
 
     this.loading.dismiss();
   }

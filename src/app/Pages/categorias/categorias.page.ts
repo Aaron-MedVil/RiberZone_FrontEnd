@@ -11,6 +11,9 @@ export class CategoriasPage implements OnInit {
 
   categorias: ProductCategory;
 
+  //> Array datos locales
+  categoriasLocales: ProductCategory;
+
   /**
    * Constructor de la clase
    * @param _dataLocal 
@@ -28,9 +31,16 @@ export class CategoriasPage implements OnInit {
    * Carga los datos de la pagina
    */
   private async cargarDatos() {
+
+    //> Datos de las categorias generados manualmente
     await this._dataLocal.getLocalCategories()
-      .then(resp => { this.categorias = resp; })
+      .then(resp => { this.categoriasLocales = resp; })
       .catch(console.error);
+
+    //> Obtiene las categorias que tienen productos
+    await this._dataLocal.getAllCategories()
+      .then(resp => { this.categorias = resp; })
+      .catch(() => { this.categorias = this.categoriasLocales; });
   }
 
   /**

@@ -33,5 +33,6 @@ export interface ProductTemplate {
     categName?: string,
     imagen?: string,
     productUomQty?: string,
-    state?: string
+    state?: string,
+    xRating?: number;
 }
