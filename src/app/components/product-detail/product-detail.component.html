@@ -1,0 +1,98 @@
+<!-- Header -->
+<ion-toolbar>
+
+  <!-- Boton favoritos -->
+  <ion-buttons slot="start">
+    <ion-button color="warning" (click)="addRmFav()">
+      <ion-icon slot="icon-only" [name]="star"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+
+  <!-- Title -->
+  <ion-title>{{ producto.name }}</ion-title>
+
+  <!-- Boton cerrar modal -->
+  <ion-buttons slot='end'>
+    <ion-button (click)="closeModal()" expand="block" fill="clear" shape="round" color='danger'>
+      <ion-icon slot="icon-only" name="close"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+</ion-toolbar>
+
+<!-- Grid -->
+<ion-grid fixed>
+
+  <!-- Producto data -->
+  <ion-row>
+
+    <!-- Image -->
+    <ion-col size="8" class="ion-padding">
+      <!-- <img [src]="producto.id | image" class="imgSlide"> -->
+      <img src="../../../assets/media/default-img.png" alt="{{ producto.name }}">
+    </ion-col>
+
+    <!-- Precio & Categoria -->
+    <ion-col size="4" class="ion-margin-top ion-padding-top">
+      <ion-label>
+        <span><u>Precio</u>: {{ producto.listPrice }}€</span>
+        <br><br>
+        <span><u>Categoría</u>: {{ this.producto.categName }}</span>
+        <br><br>
+        <p-rating [(ngModel)]="val" [readonly]="true" [cancel]="false"></p-rating>
+      </ion-label>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+<!-- Segmentos -->
+<div>
+
+  <!-- Segmentos informacion -->
+  <ion-segment (ionChange)="segmentChanged($event)" [value]="segment" color='primary'>
+
+    <!-- Descripcion -->
+    <ion-segment-button pRipple value="descripcion">
+      <ion-label color='primary'>Descripción</ion-label>
+    </ion-segment-button>
+
+    <!-- Variantes -->
+    <ion-segment-button pRipple value="variantes">
+      <ion-label color='primary'>Variantes</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <!-- Segments contenido -->
+  <div [ngSwitch]="segment" class="ion-padding">
+
+    <!-- Segmento descripcion -->
+    <div *ngSwitchCase="'descripcion'">
+
+      <!-- Descripcion -->
+      <ion-label>
+        {{ producto.descriptionSale | slice: 0: oculto }}
+        <span *ngIf="oculto !== producto.descriptionSale.length && oculto <= producto.descriptionSale.length">...
+        </span>
+      </ion-label>
+
+      <!-- Leer mas / Leer menos -->
+      <div *ngIf="oculto <= producto.descriptionSale.length">
+
+        <!-- Leer mas -->
+        <ion-label color="primary" (click)="oculto = producto.descriptionSale.length"
+          *ngIf="oculto !== producto.descriptionSale.length">
+          Mostrar más
+        </ion-label>
+
+        <!-- Leer menos -->
+        <ion-label color="primary" (click)="oculto = 150" *ngIf="oculto === producto.descriptionSale.length">
+          Mostrar menos
+        </ion-label>
+      </div>
+    </div>
+
+    <!-- Variantes content -->
+    <div *ngSwitchCase="'variantes'">
+      Variantes
+    </div>
+  </div>
+</div>

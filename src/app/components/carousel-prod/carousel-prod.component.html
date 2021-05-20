@@ -1,0 +1,49 @@
+<!-- Carousel -->
+<p-carousel [value]="productos" [numVisible]="4" [numScroll]="4" [circular]="true"
+  [responsiveOptions]="responsiveOptions" [autoplayInterval]="autoplayInterval">
+
+  <!-- Header -->
+  <ng-template pTemplate="header">
+    <h5>{{ nomCateg }}</h5>
+  </ng-template>
+
+  <!-- Items -->
+  <ng-template let-product pTemplate="item">
+    <div class="product-item">
+
+      <!-- Content -->
+      <div class="product-item-content">
+
+        <!-- Imagen -->
+        <div class="p-mb-3">
+          <img src="assets/media/default-img.png" [alt]="product.name" class="product-image" />
+        </div>
+
+        <!-- Attributos -->
+        <div>
+          <h4 class="p-mb-1">{{ product.name }}</h4>
+          <h6 class="p-mt-0 p-mb-3">{{ product.listPrice }}€</h6>
+
+          <!-- Stock chip -->
+          <div class='mb-3'>
+            <p-chip label="Stock" *ngIf='product.saleOk' styleClass='stock-chip'></p-chip>
+            <p-chip label='Sin Stock' icon='pi pi-exclamation-circle' *ngIf='!product.saleOk'
+              styleClass='no-stock-chip'></p-chip>
+          </div>
+
+          <!-- Rating -->
+          <div>
+            <p-rating [(ngModel)]="val" [readonly]="true" [cancel]="false"></p-rating>
+          </div>
+
+          <!-- Botonera -->
+          <div>
+            <ion-button pRipple (click)="showDialog(product)" expand="block" fill="clear" shape="round">
+              <span>Ver detalles</span>
+            </ion-button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</p-carousel>

@@ -1,0 +1,52 @@
+[
+    {
+        "id": 1,
+        "name": "Producto 1",
+        "descriptionSale": "Descripción del producto 1",
+        "categId": 1,
+        "listPrice": 12.5,
+        "saleOk": true,
+        "active": true,
+        "categName": "pruebas 1"
+    },
+    {
+        "id": 2,
+        "name": "Producto 2",
+        "descriptionSale": "Descripción del producto 2",
+        "categId": 1,
+        "listPrice": 10,
+        "saleOk": false,
+        "active": true,
+        "categName": "pruebas 1"
+    },
+    {
+        "id": 3,
+        "name": "Producto 3",
+        "descriptionSale": "Descripción del producto 3",
+        "categId": 2,
+        "listPrice": 12.5,
+        "saleOk": true,
+        "active": true,
+        "categName": "pruebas 2"
+    },
+    {
+        "id": 4,
+        "name": "Producto 4",
+        "descriptionSale": "Descripción del producto 4",
+        "categId": 1,
+        "listPrice": 15.5,
+        "saleOk": true,
+        "active": true,
+        "categName": "pruebas 1"
+    },
+    {
+        "id": 5,
+        "name": "Producto 5",
+        "descriptionSale": "Descripción del producto 5",
+        "categId": 3,
+        "listPrice": 12.5,
+        "saleOk": true,
+        "active": true,
+        "categName": "pruebas 3"
+    }
+]

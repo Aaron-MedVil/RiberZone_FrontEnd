@@ -1,0 +1,19 @@
+<!-- Custom page header -->
+<app-header></app-header>
+
+<!-- Page content -->
+<ion-content class="ion-padding">
+
+  <!-- Todos los productos -->
+  <app-carousel-prod [productos]='todosProductos' nomCateg='' autoplayInterval='3000'></app-carousel-prod>
+
+  <!-- Productos mas vendidos -->
+  <app-carousel-prod [productos]='productosPopulares' nomCateg='Los más vendidos' autoplayInterval=''>
+  </app-carousel-prod>
+
+  <!-- Productos nuevos -->
+  <app-carousel-prod [productos]='productosNuevos' nomCateg='Los más nuevos' autoplayInterval=''></app-carousel-prod>
+
+  <!-- Productos por menos de 10€ -->
+  <app-carousel-prod [productos]='productosBaratos' nomCateg='Menos de 10€' autoplayInterval=''></app-carousel-prod>
+</ion-content>

@@ -1,0 +1,14 @@
+<!-- Custom page header -->
+<app-header></app-header>
+
+<!-- Page content -->
+<ion-content class="ion-padding-top">
+
+  <!-- Lista categorias -->
+  <ion-list>
+
+    <ion-item detail="true" *ngFor="let categoria of categorias" (click)="verCategoria(categoria)">
+      <ion-label>{{ categoria.name }}</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
