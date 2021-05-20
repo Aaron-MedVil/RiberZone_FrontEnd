@@ -7,7 +7,7 @@ import { ProductTemplate } from '../../../assets/models/ProductTemplate';
   selector: 'app-carousel-prod',
   templateUrl: './carousel-prod.component.html',
   styleUrls: ['./carousel-prod.component.scss'],
-  providers: [DialogService]
+  providers: [DialogService],
 })
 export class CarouselProdComponent implements OnInit {
 

@@ -4,6 +4,7 @@ import { environment } from '../../environments/environment';
 import { environmentProd } from '../../environments/environment.prod';
 import { ProductTemplate } from '../../assets/models/ProductTemplate';
 import { ProductCategory } from '../../assets/models/ProductCategory';
+import { ProductAttribute } from 'src/assets/models/ProductAttribute';
 
 const URL = environment.apiUrl;
 const URLProd = environmentProd.apiUrl;
@@ -75,6 +76,15 @@ export class DataLocalService {
    * @returns Datos del producto
    */
   GetProductsCategory(categId) { return this.ejecutarQuery<ProductTemplate>(`ProductTemplate/GetProductsCategory?categId=${categId}`).toPromise(); }
+  //#endregion
+
+  //#region Variantes de los productos
+  /**
+   * Obtiene los datos de las variantes de un producto
+   * @param productId Identificador del producto
+   * @returns Datos de las variantes
+   */
+  GetProductAttributes(productId) { return this.ejecutarQuery<ProductAttribute>(`ProductAttribute/GetProductAttributes?product_id=${productId}`).toPromise();}
   //#endregion
 
   //#region Datos de las categorias

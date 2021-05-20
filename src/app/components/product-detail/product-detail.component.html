@@ -27,8 +27,7 @@
 
     <!-- Image -->
     <ion-col size="8" class="ion-padding">
-      <!-- <img [src]="producto.id | image" class="imgSlide"> -->
-      <img src="../../../assets/media/default-img.png" alt="{{ producto.name }}">
+      <img [src]="producto.id | odooProductImage" alt="{{ producto.name }}">
     </ion-col>
 
     <!-- Precio & Categoria -->
@@ -66,33 +65,12 @@
 
     <!-- Segmento descripcion -->
     <div *ngSwitchCase="'descripcion'">
-
-      <!-- Descripcion -->
-      <ion-label>
-        {{ producto.descriptionSale | slice: 0: oculto }}
-        <span *ngIf="oculto !== producto.descriptionSale.length && oculto <= producto.descriptionSale.length">...
-        </span>
-      </ion-label>
-
-      <!-- Leer mas / Leer menos -->
-      <div *ngIf="oculto <= producto.descriptionSale.length">
-
-        <!-- Leer mas -->
-        <ion-label color="primary" (click)="oculto = producto.descriptionSale.length"
-          *ngIf="oculto !== producto.descriptionSale.length">
-          Mostrar más
-        </ion-label>
-
-        <!-- Leer menos -->
-        <ion-label color="primary" (click)="oculto = 150" *ngIf="oculto === producto.descriptionSale.length">
-          Mostrar menos
-        </ion-label>
-      </div>
+      <p>{{ producto.descriptionSale }}</p>
     </div>
 
     <!-- Variantes content -->
     <div *ngSwitchCase="'variantes'">
-      Variantes
+      <p *ngFor="let attr of atributos">{{ attr.ptName }}</p>
     </div>
   </div>
 </div>

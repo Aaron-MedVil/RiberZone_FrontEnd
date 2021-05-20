@@ -14,6 +14,10 @@ import { ButtonModule } from 'primeng/button';
 import { RatingModule } from 'primeng/rating';
 import { ChipModule } from 'primeng/chip';
 import { DynamicDialogModule } from 'primeng/dynamicdialog';
+import { TreeModule } from 'primeng/tree';
+
+//> Pipes imports
+import { PipesModule } from '../pipes/pipes.module';
 
 @NgModule({
   declarations: [
@@ -33,7 +37,9 @@ import { DynamicDialogModule } from 'primeng/dynamicdialog';
     RatingModule,
     FormsModule,
     ChipModule,
-    DynamicDialogModule
+    TreeModule,
+    DynamicDialogModule,
+    PipesModule,
   ]
 })
 export class ComponentsModule { }

@@ -16,7 +16,7 @@
 
         <!-- Imagen -->
         <div class="p-mb-3">
-          <img src="assets/media/default-img.png" [alt]="product.name" class="product-image" />
+          <img [src]="product.id | odooProductImage" [alt]="product.name" class="product-image" />
         </div>
 
         <!-- Attributos -->
