@@ -5,9 +5,9 @@
 <ion-content class="ion-padding-top">
 
   <!-- Lista categorias -->
-  <ion-list>
+  <ion-list class='mouse-point'>
 
-    <ion-item detail="true" *ngFor="let categoria of categorias" (click)="verCategoria(categoria)">
+    <ion-item detail="true" *ngFor="let categoria of categorias" (click)='verCategoria(categoria)'>
       <ion-label>{{ categoria.name }}</ion-label>
     </ion-item>
   </ion-list>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataLocalService } from '../../services/data-local.service';
 import { ProductCategory } from '../../../assets/models/ProductCategory';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-categorias',
@@ -18,7 +19,7 @@ export class CategoriasPage implements OnInit {
    * Constructor de la clase
    * @param _dataLocal 
    */
-  constructor(private _dataLocal: DataLocalService) { }
+  constructor(private _dataLocal: DataLocalService, private navCtrl: NavController) { }
 
   /**
    * Metodo que se ejecuta al iniciar la clase
@@ -39,7 +40,7 @@ export class CategoriasPage implements OnInit {
 
     //> Obtiene las categorias que tienen productos
     await this._dataLocal.getAllCategories()
-      .then(resp => { this.categorias = resp; })
+      .then(resp => { this.categorias = (!resp.hasOwnProperty('status')) ? resp : undefined; })
       .catch(() => { this.categorias = this.categoriasLocales; });
   }
 
@@ -47,9 +48,6 @@ export class CategoriasPage implements OnInit {
    * Redirecciona a la pagina de productos de la categoria seleccionada
    * @param cat Categoria seleccionada
    */
-  verCategoria(cat) {
-    console.log(cat);
-    // this.navCtrl.navigateBack(`/tabs/categories-tab/products-category/${cat.id}-${cat.name}`);
-  }
+  verCategoria(cat) { this.navCtrl.navigateForward(`/tabs/categorias/producto-categoria/${cat.id}-${cat.name}`); }
 
 }

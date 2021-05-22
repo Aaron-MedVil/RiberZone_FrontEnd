@@ -18,16 +18,19 @@ import { TreeModule } from 'primeng/tree';
 
 //> Pipes imports
 import { PipesModule } from '../pipes/pipes.module';
+import { CardProdComponent } from './card-prod/card-prod.component';
 
 @NgModule({
   declarations: [
     HeaderComponent,
     CarouselProdComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    CardProdComponent
   ],
   exports: [
     HeaderComponent,
-    CarouselProdComponent
+    CarouselProdComponent,
+    CardProdComponent
   ],
   imports: [
     CommonModule,
