@@ -7,7 +7,11 @@ import { IonicModule } from '@ionic/angular';
 import { ProductoCategoriaPageRoutingModule } from './producto-categoria-routing.module';
 
 import { ProductoCategoriaPage } from './producto-categoria.page';
-import {DataViewModule} from 'primeng/dataview';
+import { DataViewModule } from 'primeng/dataview';
+import { DynamicDialogModule } from 'primeng/dynamicdialog';
+import { RatingModule } from 'primeng/rating';
+
+import { PipesModule } from '../../../pipes/pipes.module';
 
 @NgModule({
   imports: [
@@ -15,8 +19,11 @@ import {DataViewModule} from 'primeng/dataview';
     FormsModule,
     IonicModule,
     ProductoCategoriaPageRoutingModule,
-    DataViewModule
+    DataViewModule,
+    DynamicDialogModule,
+    PipesModule,
+    RatingModule
   ],
   declarations: [ProductoCategoriaPage]
 })
-export class ProductoCategoriaPageModule {}
+export class ProductoCategoriaPageModule { }
