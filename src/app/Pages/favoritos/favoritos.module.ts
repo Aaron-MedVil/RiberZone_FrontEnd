@@ -8,12 +8,22 @@ import { FavoritosPageRoutingModule } from './favoritos-routing.module';
 
 import { FavoritosPage } from './favoritos.page';
 
+import { DataViewModule } from 'primeng/dataview';
+import { DynamicDialogModule } from 'primeng/dynamicdialog';
+import { RatingModule } from 'primeng/rating';
+
+import { PipesModule } from '../../pipes/pipes.module';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    FavoritosPageRoutingModule
+    FavoritosPageRoutingModule,
+    PipesModule,
+    DataViewModule,
+    DynamicDialogModule,
+    RatingModule
   ],
   declarations: [FavoritosPage]
 })

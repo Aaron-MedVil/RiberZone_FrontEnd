@@ -60,7 +60,6 @@ export class ProductoCategoriaPage implements OnInit {
     //> Obtiene los datos de los productos de la categoria
     await this._dataLocal.GetProductsCategory(this.cat[0])
       .then(resp => { this.products = (!resp.hasOwnProperty('status')) ? resp : undefined; })
-      // .catch(() => this.products = undefined);
       .catch(() => { this.products = this.productsLocal; });
 
     this.loading.dismiss();
