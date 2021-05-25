@@ -14,6 +14,8 @@ import { RatingModule } from 'primeng/rating';
 
 import { PipesModule } from '../../pipes/pipes.module';
 
+import { ComponentsModule } from '../../components/components.module';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -23,7 +25,8 @@ import { PipesModule } from '../../pipes/pipes.module';
     PipesModule,
     DataViewModule,
     DynamicDialogModule,
-    RatingModule
+    RatingModule,
+    ComponentsModule
   ],
   declarations: [FavoritosPage]
 })
